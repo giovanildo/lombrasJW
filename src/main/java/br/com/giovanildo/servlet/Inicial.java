@@ -13,42 +13,46 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Inicial extends HttpServlet {
 
-
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String paramAcao = request.getParameter("acao");
-		response.getWriter().println(paramAcao);
-		
-//		String [] tipoEEndereco = nome.split(":");
-//		if(tipoEEndereco[0].equals("forward")) {
-//			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + tipoEEndereco[1]);
-//			rd.forward(request, response);
-//		} else {
-//			response.sendRedirect(tipoEEndereco[1]);
-//		}
-//	
-		
-		if(paramAcao=="torneios") {
-			response.getWriter().println("mostrando torneios");
-//			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/torneios.jsp");
-//			rd.forward(request, response);
+
+		if (paramAcao.equals("torneios")) {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/torneios.jsp");
+			rd.forward(request, response);
 		}
-		
-//		if(paramAcao.equals("listaEmpresas")) {
-//		nome = listaEmpresas(request, response);
-//		System.out.println("listando empresa");
-//	}
+		if (paramAcao.equals("partidas")) {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/partidas.jsp");
+			rd.forward(request, response);
+		}
+		if (paramAcao.equals("cadastroClubes")) {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/cadastroClubes.jsp");
+			rd.forward(request, response);
+		}
+		if (paramAcao.equals("listaClubes")) {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/listaClubes.jsp");
+			rd.forward(request, response);
+		}
+		if (paramAcao.equals("cadastroEAtleta")) {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/CadastroEAtleta.jsp");
+			rd.forward(request, response);
+		}
+		if (paramAcao.equals("mostraClube")) {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/mostraClube.jsp");
+			rd.forward(request, response);
+		}
+		if (paramAcao.equals("removeClube")) {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/cadastroTimes.jsp");
+			rd.forward(request, response);
+		}
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
